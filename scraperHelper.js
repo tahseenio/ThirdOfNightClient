@@ -1,5 +1,7 @@
 const magribInput = document.querySelector('.maghribinput');
 const fajrInput = document.querySelector('.fajrinput');
+const scrapetxt = document.querySelector('.scrapingtxt');
+console.log(scrapetxt);
 
 const convertTo24HrAndSet = (time, selector) => {
   const timeArr = time.replaceAll(':', ' ').split(' ');
@@ -21,12 +23,17 @@ const convertTo24HrAndSet = (time, selector) => {
 // fetchdata
 const fetchTIMES = async () => {
   console.log('ran fetch');
+  scrapetxt.innerHTML = 'Receiving data, please wait...';
   const promise = await fetch('https://thirdofnightserver.onrender.com/scrape');
   const data = await promise.json();
   // console.log(data);
   convertTo24HrAndSet(data.fajr, fajrInput);
   convertTo24HrAndSet(data.magrib, magribInput);
+  scrapetxt.innerHTML = 'Done';
   document.querySelector('.calculate').click();
+  setTimeout(() => {
+    scrapetxt.innerHTML = '&nbsp';
+  }, 3000);
 };
 
 fetchTIMES();
