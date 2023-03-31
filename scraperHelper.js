@@ -21,7 +21,7 @@ const convertTo24HrAndSet = (time, selector) => {
 // fetchdata
 const fetchTIMES = async () => {
   console.log('ran fetch');
-  const promise = await fetch('https://thirdofnightserver.onrender.com/scrape');
+  const promise = await fetch('http://localhost:3000/scrape');
   const data = await promise.json();
   // console.log(data);
   convertTo24HrAndSet(data.fajr, fajrInput);
