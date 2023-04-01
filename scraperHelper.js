@@ -24,7 +24,9 @@ const convertTo24HrAndSet = (time, selector) => {
 const fetchTIMES = async () => {
   console.log('ran fetch');
   scrapetxt.innerHTML = 'Receiving data, please wait...';
-  const promise = await fetch('https://thirdofnightserver.onrender.com/scrape');
+  const promise = await fetch(
+    'https://third-of-night-server.vercel.app/scrape'
+  );
   const data = await promise.json();
   // console.log(data);
   convertTo24HrAndSet(data.fajr, fajrInput);
