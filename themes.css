@@ -22,7 +22,7 @@ body {
 .results,
 .jamilabab {
   background-color: rgba(255, 255, 255, 0.45);
-  height: 12em;
+  min-height: 12em;
   backdrop-filter: blur(3em);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
